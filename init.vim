@@ -88,11 +88,15 @@ nnoremap <silent> ]d :lua vim.diagnostic.goto_next()<CR>
 
 
 
-nnoremap <C-p> :FZF<CR>              " Open FZF with Ctrl + P
-nnoremap <leader>ff :FZF<CR>         " Find files with leader + ff
-nnoremap <leader>fg :Rg<CR>          " Search with Ripgrep using leader + fg
-nnoremap <leader>gc :G<CR>           " Git command with leader + gc
-nnoremap <leader>gcl :Gclog<CR>      " Git commit log with leader + gcl
+nnoremap <C-p> :FZF<CR>
+" Using Lua functions
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+
+nnoremap <leader>gc :G<CR>
+nnoremap <leader>gcl :Gclog<CR>
 " Move 1 more lines up or down in normal and visual selection modes.
 nnoremap K :m .-2<CR>==
 nnoremap J :m .+1<CR>==
